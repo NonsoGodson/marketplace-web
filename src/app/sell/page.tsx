@@ -62,7 +62,11 @@ export default function SellOnboardingPage() {
 
   if (authLoading || !user || checking) return null;
 
-  const showForm = store === 'not_started' || (store !== null && store !== 'not_started' && store.verificationStatus === 'REJECTED');
+ const showForm =
+  store === 'not_started' ||
+  (store !== null &&
+    typeof store === 'object' &&
+    store.verificationStatus === 'REJECTED');
 
   return (
     <main>
